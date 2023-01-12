@@ -12,23 +12,24 @@ const numberElement = document.getElementById('numbers')
 const symbolElement = document.getElementById('symbols')
 const alphabet = 'abcdefghijklmnñopqrstuvwxyz';
 const alphabetUpperCase = alphabet.toUpperCase();
-const numbers = '0123456789';
-const symbols = '!"·$%&/()^*{-ª';
+const numbers = '01234567890123456789';
+const symbols = '!"·$%&/()^*{-ª*^`¨´-.,=$';
+let checkedArray= [];
 
 
 formElement.addEventListener('submit', ev =>{
     ev.preventDefault()
     finalPassword.value = createString(rangeElement.value)
-    checked()
+ /*    checked() */
 })
 
-const checked = () =>{
+/* const checked = () =>{
     for(const item of checkBoxes){
         if(item.checked){
-            console.log(item.id + ' esta marcado')
+            checkedArray.push(item)
         }
     }
-}
+} */
 
 formElement.addEventListener('change', ev =>{
     passwordLength = rangeElement.value
@@ -39,31 +40,32 @@ formElement.addEventListener('change', ev =>{
     const containsNumber = numberElement.checked;
     const containsSymbol = symbolElement.checked;
 
-    console.log(containsUpper, containsLower, containsNumber, containsSymbol)
-    if(containsUpper){}
+    password=''
 
+    if (containsUpper){
+        password +=  alphabetUpperCase
+    }
+    if (containsLower){
+        password += alphabet
+    }
+    if(containsNumber) {
+        password += numbers
+    }
+    if(containsSymbol) {
+        password +=  symbols
+    }
+    console.log(password)
 })
-
-
-
-
 
 const createString = (length) =>{
     let newString = '';
     for (let i = 0; i < length; i++){
-        newString += alphabet.charAt(Math.floor(Math.random() * alphabet.length))
+        newString += password.charAt(Math.floor(Math.random() * password.length))
     }
     return newString
 }
 
-/* const createStringUppercases = (length) =>{
-    const alphabetUpperCasse = alphabet.toUpperCase()
-    let newStringUpperCases = '';
-    for (let i = 0; i < length; i++){
-        newStringUpperCases += alphabetUpperCasse.charAt(Math.floor(Math.random() * alphabetUpperCasse.length))
-    }
-    return newStringUpperCases
-} */
+
 
     
 
