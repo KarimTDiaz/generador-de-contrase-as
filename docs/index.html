@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <!-- CAMBIAR POR styles.min.css al finalizar el proyecto -->
-    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Password Generator</title>
   </head>
 
@@ -19,9 +19,10 @@
     <main class="main">
       <div class="password-generator-container">
         <div class="password-final">
-          <input type="text" id="password-final-input" placeholder="PASSWORD" readonly>
+          <input type="text" id="password-final-input" placeholder="PASSWORD" readonly class="password-final__field">
         </div>
         <form id="form">
+          <div class="length-range-container">
           <label
             for="password-generator-range"
             class="password-generator-length"
@@ -33,6 +34,7 @@
               >0</span
             >
           </label>
+        </div>
           <input
             type="range"
             name="range"
