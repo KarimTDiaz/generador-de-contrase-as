@@ -33,7 +33,7 @@ const strengthLevel = () => {
     const checkedBoxes = checked()
 
     if(checkedBoxes.length === 0){
-        strengthLevelWord.textContent=''
+        strengthLevelWord.textContent='NO OPTIONS CHECKED'
     }
     if(checkedBoxes.length === 1){
         strengthLevelWord.textContent='TOO WEAK'
@@ -47,14 +47,18 @@ const strengthLevel = () => {
     if(checkedBoxes.length === 4){
         strengthLevelWord.textContent= 'STRONG';
     }
+    
     if(rangeElement.value < 5){
         strengthLevelWord.textContent = 'TOO SHORT'
         buttonGenerate.setAttribute('disabled' , true)
-    } 
+    } else if(checkedBoxes.length < 0){
+        buttonGenerate.setAttribute('disabled')
+    }else{
+        buttonGenerate.removeAttribute('disabled')
+        buttonGenerate.classList.add('green')
+    }
 
-    if(checkBoxes.length === 0){
-        buttonGenerate.setAttribute('disabled' , true)
-    } 
+   
 }
 
 const createString = (length) =>{
